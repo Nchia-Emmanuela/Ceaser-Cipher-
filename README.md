@@ -1,2 +1,2 @@
-# Ceaser-Cipher-
+# Ceaser-Cipher
 Ceaser Cipher - Implementation in JavaScript
