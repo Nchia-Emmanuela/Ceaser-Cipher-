@@ -22,16 +22,16 @@
         </div>
         <div id="encrypt-form">
             <form action="#">
-                <input class="en-key" type="text" placeholder="Enter Key..." />
-                <input class="en-message" type="text" placeholder="Enter Plain Text..." />
-                <button class="en-button">Encrypt</button>
+                <input onkeyup="en_de_key(event)" class="en-key" type="number" placeholder="Enter Key..." required />
+                <input onkeyup="en_de_message(event)" class="en-message" type="text" placeholder="Enter Plain Text..." required/>
+                <button type="submit" class="en-button">Encrypt</button>
             </form>
         </div>
         <div id="decrypt-form">
-            <form action="#">
-                <input class="de-key" type="text" placeholder="Enter Key..." />
-                <input class="de-message" type="text" placeholder="Enter Cipher..." />
-                <button class="de-button">Decrypt</button>
+            <form action="# ">
+                <input onkeyup="en_de_key(event)" class="de-key" type="number" placeholder="Enter Key..." required />
+                <input onkeyup="en_de_message(event)" class="de-message" type="text" placeholder="Enter Cipher..." required />
+                <button type="submit" class="de-button">Decrypt</button>
             </form>
         </div>
     </div>
