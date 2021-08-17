@@ -66,19 +66,39 @@ let newIndex = 0;
 en_button.addEventListener('click', (e) => {
     e.preventDefault();
     for (i = 0; i < message.length; i++) {
-        for (j = 0; j < letterArray.length; j++) {
-            if (letterArray[j] === message[i]) {
-                newIndex = j + Number(key);
-                // console.log(newIndex);
-                change += letterArray[newIndex];
-                break;
+        if (message == " ") {
+            change += " ";
+        } else {
+            for (j = 0; j < letterArray.length; j++) {
+                if (letterArray[j] === message[i]) {
+                    newIndex = (j + Number(key)) % 26;
+                    // console.log(newIndex);
+                    change += letterArray[newIndex];
+                    break;
+                }
             }
         }
     }
-    console.log("Encypted Message: " + change);
+    // console.log("Encypted Message: " + change);
+    document.querySelector('#result').value = change;
 });
 
 de_button.addEventListener('click', (e) => {
     e.preventDefault();
-
+    for (i = 0; i < message.length; i++) {
+        if (message == " ") {
+            change += " ";
+        } else {
+            for (j = 0; j < letterArray.length; j++) {
+                if (letterArray[j] === message[i]) {
+                    newIndex = (j - Number(key)) % 26;
+                    // console.log(newIndex);
+                    change += letterArray[newIndex];
+                    break;
+                }
+            }
+        }
+    }
+    // console.log("Encypted Message: " + change);
+    document.querySelector('#result').value = change;
 });
