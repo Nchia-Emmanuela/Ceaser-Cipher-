@@ -22,7 +22,7 @@ decrypt.addEventListener('click', () => {
     decryptForm.style.display = 'block';
 });
 
-var key = 0;
+let key = 0;
 
 function en_de_key(e) {
     // console.log(e.target.value);
@@ -47,32 +47,35 @@ function en_de_message(e) {
     // console.log(e.target.value);
     if (key === 0) {
         e.target.value = "";
+    } else {
+        message = e.target.value;
+        message = message.toUpperCase();
     }
-    message = e.target.value;
-    message = message.toUpperCase();
 }
+
+let num = 2;
+let cha = 'M';
 
 const de_button = document.querySelector('.de-button');
 const en_button = document.querySelector('.en-button');
 
-let i;
-var newIndex = 0;
+let i = 0;
+let j = 0;
+let newIndex = 0;
+
 en_button.addEventListener('click', (e) => {
     e.preventDefault();
     for (i = 0; i < message.length; i++) {
-        letterArray.forEach(letter => {
-            if (letter === message[i]) {
-                // console.log(letter, message[i]);
-                console.log(key);
-                newIndex = i + key;
-                console.log(newIndex);
-                // console.log(letterArray[newIndex]);
+        for (j = 0; j < letterArray.length; j++) {
+            if (letterArray[j] === message[i]) {
+                newIndex = j + Number(key);
+                // console.log(newIndex);
                 change += letterArray[newIndex];
-
-                // console.log(change);
+                break;
             }
-        })
+        }
     }
+    console.log("Encypted Message: " + change);
 });
 
 de_button.addEventListener('click', (e) => {
