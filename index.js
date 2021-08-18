@@ -53,9 +53,6 @@ function en_de_message(e) {
     }
 }
 
-let num = 2;
-let cha = 'M';
-
 const de_button = document.querySelector('.de-button');
 const en_button = document.querySelector('.en-button');
 
@@ -65,6 +62,7 @@ let newIndex = 0;
 
 en_button.addEventListener('click', (e) => {
     e.preventDefault();
+    document.querySelector('#result').value = "";
     for (i = 0; i < message.length; i++) {
         if (message == " ") {
             change += " ";
@@ -85,13 +83,14 @@ en_button.addEventListener('click', (e) => {
 
 de_button.addEventListener('click', (e) => {
     e.preventDefault();
+    document.querySelector('#result').value = "";
     for (i = 0; i < message.length; i++) {
         if (message == " ") {
             change += " ";
         } else {
             for (j = 0; j < letterArray.length; j++) {
                 if (letterArray[j] === message[i]) {
-                    newIndex = (j - Number(key)) % 26;
+                    newIndex = (j - Number(key));
                     // console.log(newIndex);
                     change += letterArray[newIndex];
                     break;
